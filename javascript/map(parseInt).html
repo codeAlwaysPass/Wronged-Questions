@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //['1','2','3'].map(parseInt)的返回值是什么？
+      //map接收三个参数：当前元素值、当前元素的索引、原数组
+      //parseInt接收两个参数，第一个是要解析的字符串，第二个参数是进制数
+      //执行该函数时，实际上是对每个数组元素执行了parseInt，传入了两个参数分别是元素值和索引
+      let res = ['1','2','3'].map(parseInt);
+      //parseInt('1',0)，第二个参数未提供或为0时，根据第一个参数的形式判断，返回1
+      //parseInt('2',1)，一进制没有2，返回NaN
+      //parseInt('3',2)，二进制没有1，返回Nan
+      console.log(res);
+
+    </script>
+  </body>
+</html>

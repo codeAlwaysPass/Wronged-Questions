@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function showCase(value) {
+        switch (value) {
+          //switch中的case使用的是===
+          case "A":
+            console.log("Case A");
+            break;
+          case "B":
+            console.log("Case B");
+            break;
+          case undefined:
+            console.log("undefined");
+          default:
+            console.log("Do not know!");
+        }
+      }
+      //使用new String()创建的是一个字符串对象而不是普通的字符串。
+      showCase(new String("A"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //在全局范围内，this指向全局对象
+      console.log(this === window);
+      function show() {
+        console.log(this);
+      }
+      show(); // 在非严格模式下，this 指向全局对象 window，在严格模式下，this 为 undefined
+      const obj = {
+        method: function () {
+          console.log(this);
+        },
+      };
+      obj.method(); // 对象函数调用时，this指向当前对象
+      function Person(name) {
+        this.name = name;
+      }
+      const person = new Person('Bob');
+      console.log(person.name); // 使用new实例化对象是，this指向新创建的对象
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        name: "law",
+        age: 18,
+      };
+      //是用来检查一个属性是否是对象本身的属性，而不是它的原型链上的属性。
+      //如果属性是在对象本身定义的（不是继承自其原型链的），hasOwnProperty 返回 true；
+      //如果属性是从原型链继承来的或根本不存在于该对象中，它会返回 false。
+      console.log(obj.hasOwnProperty("name"));//true
+      console.log(obj.hasOwnProperty("age"));//true
+      console.log(obj.hasOwnProperty("gander"));//false
+    </script>
+  </body>
+</html>

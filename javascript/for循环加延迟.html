@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //for循环几乎是立刻执行完毕的，而setTimeout是异步执行的，即它们的回调会在未来的某个时刻执行
+      //最后每一次的回调使用的都是成为10的i
+      for (var i = 0; i < 10; i++) {
+        setTimeout(function () {
+          console.log(i);
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

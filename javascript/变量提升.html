@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //name依然会被优先初始化为World!
+      var name = "World!";
+      //这是一个立即执行函数，函数在执行过程中会有自己的变量声明
+      //简而言之，这个函数在执行过程中会有自己的 name 变量声明，这个声明会覆盖（遮蔽）全局作用域中的 name 变量，直至函数执行完毕。
+      (function () {
+        if (typeof name === "undefined") {
+          //尽管name在if块内被声明，但是由于变量提升它被提升到函数最顶部，因此为undefined
+          var name = "Jack";
+          console.log("Goodbye " + name);
+        } else {
+          console.log("Hello " + name);
+        }
+      })();
+      //执行后输出的结果依然是World
+      console.log(name);
+    </script>
+  </body>
+</html>

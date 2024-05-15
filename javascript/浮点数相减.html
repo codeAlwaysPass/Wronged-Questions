@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var two = 0.2;
+      var one = 0.1;
+      var eight = 0.8;
+      var six = 0.6;
+      //十进制的0.1和0.2在二进制表示都是无限循环的，0.2-0.1的截断误差刚好互相抵消
+      //但0.8-0.2不可能精确等于0.2
+      console.log([two - one == one, eight - six == two]);
+    </script>
+  </body>
+</html>
