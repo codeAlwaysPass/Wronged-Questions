@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //任意值与布尔值比较，都会将两边的值转化为Number。
+      //arr即使没有值，也会被判定为true
+      console.log([] ? true : false);
+      console.log([] == false ? true : false);
+      //空对象也会被判定为true
+      console.log({} == false ? true : false);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //call可以指定该函数内部this的指向(即函数执行时所在的作用域)，
+      //然后在所指定的作用域中，调用该函数并立即执行。
+      var keith = {
+        rascal: 123,
+      };
+      var rascal = 456;
+
+      var obj2 = {
+        r: 123,
+      };
+
+      function a() {
+        console.log(this.rascal);
+      }
+      //如果call方法没有参数或者参数为null、undefined和this
+      //则等同于指向全局对象
+      a(); //456
+      a.call(); //456
+      a.call(null); //456
+      a.call(undefined); //456
+      a.call(this); //456
+      //将this指向keith对象，就会调用keith中的rescal
+      a.call(keith);
+      //如果this指向的对象中不存在this.rascal则会返回undefined
+      a.call(obj2);
+
+      //call方法可以传递两个参数。
+      //第一个参数是指定函数内部中this的指向，第二个参数是函数调用时需要传递的参数
+      function fun(a, b) {
+        console.log(a + b);
+      }
+      //第一个参数是必须的，可以是null,undefined,this, 但不能为空
+      //如果第一个参数没写，会返回NaN
+      fun.call(null, 1, 2);
+
+      //apply和call类似，也是改变this的指向，第一个参数是一样的
+      //但apply的第二个参数必须是数组的形式
+      fun.apply(null, [1, 2]);
+
+      //利用apply求值
+      var a = [2, 4, 5, 7, 8, 10];
+
+      console.log(Math.max.apply(null, a)); //10
+      console.log(Math.max.call(null, 2, 4, 5, 7, 8, 10)); //10
+
+      //利用apply转换类似数组的对象
+      console.log(Array.prototype.slice.apply({ 0: 1, length: 1 })); //[1]
+      console.log(Array.prototype.slice.call({ 0: 1, length: 1 })); //[1]
+      console.log(Array.prototype.slice.apply({ 0: 1, length: 2 })); //[1,undefined]
+      console.log(Array.prototype.slice.call({ 0: 1, length: 2 })); //[1,undefined]
+
+      //上面代码的call，apply方法的参数都是对象，但是返回结果都是数组，这就起到了将对象转成数组的目的。
+      //从上面代码可以看到，这个方法起作用的前提是，被处理的对象必须**有length属性，以及相对应的数字键**。
+
+      //bind方法用于指定函数内部的this指向（执行时所在的作用域），然后返回一个新函数。
+      //bind方法并非立即执行一个函数。
+      function fun2(a, b) {
+        return a + b;
+      }
+      console.log(fun2.apply(null, [1, 4])); //5
+      console.log(fun2.call(null, 1, 4)); //5
+      console.log(fun2.bind(null, 1, 4)); //keith()
+      console.log(fun2.bind(null, 1, 4)()); //5
+    </script>
+  </body>
+</html>

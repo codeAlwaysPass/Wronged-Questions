@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var msg = "hello";
+      for (var i = 0; i < 10; i++) {
+        //hello+0+0, hello + 2 + 1,...hello+81+9
+        //hello会分别和i*2的值和i的值进行组合
+        var msg = "hello" + i * 2 + i;
+        console.log(msg);
+      }
+      alert(msg);
+    </script>
+  </body>
+</html>
